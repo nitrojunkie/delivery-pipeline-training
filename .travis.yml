@@ -5,7 +5,7 @@ notifications:
   slack: devops-training-spb:0G7208FSSrpINrw8RCctGRpw
 services:
   - postgresql
-  before_script:
+before_script:
   - psql -c 'create database crudtest;' -U crudtest
-  addons:
+addons:
   postgresql: "9.4"
