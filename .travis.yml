@@ -1,13 +1,13 @@
 language: node_js
-node_js:
-  - "5.0"
-notifications:
-  slack: devops-training-spb:0G7208FSSrpINrw8RCctGRpw
 services:
-  - postgresql
-before_script:
-  - createuser -s crudtest
-  - psql postgres -c 'create database crudtest'
-  - psql postgres -c "ALTER ROLE crudtest WITH PASSWORD 'crudtest';"
+ - postgresql
+node_js: 
+ - "5.10.1"
 addons:
   postgresql: "9.4"
+before_script:
+ - bash install.sh
+script:
+ - source env.sh && npm run test
+notifications:
+  slack: devops-training-spb:WrZC6AK2axk6c60pHwf0dPlH
