@@ -8,5 +8,6 @@ services:
 before_script:
   - createuser -s crudtest
   - psql -c 'create database crudtest;' -U crudtest
+  - psql postgres -c "ALTER ROLE crudtest WITH PASSWORD 'crudtest';"
 addons:
   postgresql: "9.4"
